@@ -1,0 +1,122 @@
+libloader (1.1.6.dfsg-5) unstable; urgency=medium
+
+  * Team upload
+  * Removing now useless d/dirs file
+  * Depending on debhelper-compat 13, dropping old compat 7 file
+  * Providing Vcs-* links to Salsa in d/control (Closes: #649273)
+  * The package with the jar has the doc package as Suggests
+  * Now building with dh instead of cdbs
+  * Setting Depends manually in d/control, as javahelper-generated Depends are
+    too wide
+  * Refreshing d/copyright
+  * Indicating excluded files in d/copyright with the Files-Excluded field
+  * Setting Standards version to 4.6.0:
+    - Using 1.0 copyright-format in d/copyright
+    - Setting Rules-Requires-Root: no
+  * Fixing spelling error in long description
+  * Setting d/watch version to 4, adding repack options
+  * Adding missing files in the jar, in d/rules
+  * Adding a Lintian override for the embedded javascript
+  * Using https URI for the upstream website
+  * Trim trailing whitespace.
+
+ -- Pierre Gruet <pgt@debian.org>  Sat, 04 Sep 2021 13:57:19 +0200
+
+libloader (1.1.6.dfsg-4.1) unstable; urgency=medium
+
+  * Non maintainer upload by the Reproducible Builds team.
+  * No source change upload to rebuild on buildd with .buildinfo files.
+
+ -- Holger Levsen <holger@debian.org>  Tue, 22 Dec 2020 00:07:44 +0100
+
+libloader (1.1.6.dfsg-4) unstable; urgency=low
+
+  * Team upload.
+  * d/rules: Use version-less ehcache-core jar file. (Closes: #661970).
+
+ -- Miguel Landaeta <miguel@miguel.cc>  Fri, 02 Mar 2012 20:47:22 -0430
+
+libloader (1.1.6.dfsg-3) unstable; urgency=low
+
+  * add build-depends on ant-optional (closes: #648916)
+
+ -- Rene Engelhard <rene@debian.org>  Thu, 24 Nov 2011 21:16:21 +0000
+
+libloader (1.1.6.dfsg-2) unstable; urgency=low
+
+  * merge libbase 1.1.6-2 changes
+
+ -- Rene Engelhard <rene@debian.org>  Tue, 01 Nov 2011 15:15:07 +0000
+
+libloader (1.1.6.dfsg-1) unstable; urgency=low
+
+  * remove test-lib/junit-3.8.1.jar
+  * build-depend on junit; prepare to and run ant test
+
+ -- Rene Engelhard <rene@debian.org>  Tue, 27 Sep 2011 22:38:00 +0000
+
+libloader (1.1.6-1) unstable; urgency=low
+
+  * new upstream release
+  * set Maintainer to Debian Java Maintainers again, me in Uploaders
+  * add classpath to jar using jh_classpath
+  * install javadocs using jh_javadoc
+  * use jh_depends / ${java:Depends}
+
+ -- Rene Engelhard <rene@debian.org>  Sun, 25 Sep 2011 15:29:03 +0000
+
+libloader (0.3.7-2) unstable; urgency=low
+
+  * QA upload.
+  * Orphaning package.
+
+ -- Torsten Werner <twerner@debian.org>  Tue, 16 Aug 2011 22:37:39 +0200
+
+libloader (0.3.7-1) unstable; urgency=low
+
+  * New upstream release.
+  * Team upload.
+  * Remove JRE dependencies.
+  * Switch to source format 3.0.
+  * Update Standards-Version: 3.8.4.
+  * Add Homepage header.
+  * Convert patches to dep3 format.
+
+ -- Torsten Werner <twerner@debian.org>  Tue, 04 May 2010 23:02:36 +0200
+
+libloader (0.3.6-4) unstable; urgency=low
+
+  * Fixed watch file to match the latest release (Closes: #546855).
+  * (Build-)Depends on default-jdk.
+  * Build-Depends on debhelper >= 7.
+  * Moved package to section 'java'.
+  * Let all packages depend on ${misc:Depends}.
+  * Added Vcs-Browser and Vcs-Svn fields.
+  * Removed Rene and added myself to Uploaders.
+  * Updated Standards-Versiont o 3.8.3.
+
+ -- Michael Koch <konqueror@gmx.de>  Wed, 16 Sep 2009 21:26:31 +0200
+
+libloader (0.3.6-3) unstable; urgency=low
+
+  * don't build-depend on libehcache-java (to be moved to contrib)
+
+ -- Rene Engelhard <rene@debian.org>  Mon, 25 Feb 2008 18:44:27 +0100
+
+libloader (0.3.6-2) unstable; urgency=low
+
+  * upload to unstable
+
+ -- Rene Engelhard <rene@debian.org>  Thu, 14 Feb 2008 23:53:57 +0100
+
+libloader (0.3.6-1) experimental; urgency=low
+
+  * New upstream release
+
+ -- Rene Engelhard <rene@debian.org>  Sat, 29 Dec 2007 19:40:40 +0100
+
+libloader (0.3.4-1) unstable; urgency=low
+
+  * Initial release
+
+ -- Rene Engelhard <rene@debian.org>  Sat, 06 Oct 2007 14:33:10 +0200

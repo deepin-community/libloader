@@ -1,0 +1,4 @@
+version=4
+
+opts="repack,repacksuffix=+dfsg,compression=xz,dversionmangle=s/[+.]dfsg[0-9]*//" \
+ https://sf.net/jfreereport/libloader-(.*)\.zip

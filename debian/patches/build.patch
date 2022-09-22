@@ -1,0 +1,115 @@
+Description: skipping useless ant targets for the Debian build
+Author: Pierre Gruet <pgt@debian.org>
+Forwarded: not-needed
+Last-Update: 2021-09-02
+
+--- a/build.xml
++++ b/build.xml
+@@ -27,18 +27,4 @@
+       FOUND IN common_build.xml.
+     --> 
+ 
+-	<target name="dist" description="Creates all the distributable items for this project" >
+-		<ant antfile="${common.build.file}" target="dist" />
+-		
+-		<!-- Create the required zip distribution which contains the entire project -->
+-		<zip destfile="${dist.dir}/${ivy.artifact.id}-${project.revision}.zip">
+-			<fileset dir="${basedir}">
+-				<exclude name="bin/" />
+-				<exclude name="dist/" />
+-				<exclude name="eclipse-bin/" />
+-			</fileset>
+-			<zipfileset dir="${dist.dir}" includes="**/*.jar" />
+-		</zip>
+-	</target>
+-
+ </project>
+--- a/common_build.xml
++++ b/common_build.xml
+@@ -301,25 +301,29 @@
+ 
+   <!-- Setup the compile classpath -->
+   <path id="classpath">
+-    <fileset dir="${devlib.dir}">
+-      <include name="*.jar" />
+-    </fileset>
+-    <fileset dir="${lib.dir}">
+-      <include name="*.jar" />
+-    </fileset>
++    <pathelement location="/usr/share/java/batik-bridge.jar" />
++    <pathelement location="/usr/share/java/batik-constants.jar" />
++    <pathelement location="/usr/share/java/batik-gvt.jar" />
++    <pathelement location="/usr/share/java/batik-util.jar" />
++    <pathelement location="/usr/share/java/commons-logging.jar" />
++    <pathelement location="/usr/share/java/ehcache.jar" />
++    <pathelement location="/usr/share/java/libbase.jar" />
++    <pathelement location="/usr/share/java/libpixie.jar" />
++    <pathelement location="/usr/share/java/xml-apis-ext.jar" />
+   </path>
+ 
+   <!-- Setup the classpath used for testing -->
+   <path id="test.classpath">
+-    <fileset dir="${devlib.dir}">
+-      <include name="*" />
+-    </fileset>
+-    <fileset dir="${lib.dir}">
+-      <include name="*.jar" />
+-    </fileset>
+-    <fileset dir="${testlib.dir}">
+-      <include name="*.jar" />
+-    </fileset>
++    <pathelement location="/usr/share/java/batik-bridge.jar" />
++    <pathelement location="/usr/share/java/batik-constants.jar" />
++    <pathelement location="/usr/share/java/batik-gvt.jar" />
++    <pathelement location="/usr/share/java/batik-util.jar" />
++    <pathelement location="/usr/share/java/commons-logging.jar" />
++    <pathelement location="/usr/share/java/ehcache.jar" />
++    <pathelement location="/usr/share/java/libbase.jar" />
++    <pathelement location="/usr/share/java/libpixie.jar" />
++    <pathelement location="/usr/share/java/xml-apis-ext.jar" />
++    <pathelement location="/usr/share/java/junit.jar" />
+     <dirset dir="${classes.dir}" />
+     <dirset dir="${testclasses.dir}" />
+   </path>
+@@ -1043,7 +1047,7 @@
+ 	      - compile.post     : anything needed after the compile is done 
+ 	    ====================================================================-->
+   <target name="compile"
+-          depends="init, compile.pre, compile.compile, compile.src_copy, compile.res_copy, compile.lic_copy, compile.post"
++          depends="init, compile.pre, compile.compile, compile.src_copy, compile.lic_copy, compile.post"
+           description="Performs all the steps to prepare the bin directory with a complete compilation" />
+ 
+ 
+@@ -1065,6 +1069,7 @@
+            debug="${javac.debug}"
+            deprecation="${javac.deprecation}"
+            fork="true"
++           includeantruntime="false"
+            source="${javac.source}"
+            target="${javac.target}">
+       <classpath>
+@@ -1151,7 +1156,7 @@
+ 	    
+ 	    Creates a jar file from the bin directory
+ 	    ====================================================================-->
+-  <target name="jar" depends="compile,set-build.id,generate.manifest" description="Jars up the bin directory after a compile">
++  <target name="jar" depends="compile,generate.manifest" description="Jars up the bin directory after a compile">
+     <jar destfile="${dist.dir}/${ivy.artifact.id}-${project.revision}.jar" manifest="${dist.manifest.file}">
+       <fileset dir="${classes.dir}" />
+     </jar>
+@@ -1164,7 +1169,7 @@
+ 	    Creates a new manifest file if one is not specified, or updates
+ 	    an existing manifest file if one is specified.
+ 	    ====================================================================-->
+-  <target name="generate.manifest" depends="init,set-build.id">
++  <target name="generate.manifest" depends="init">
+     <delete file="${dist.manifest.file}" />
+     <touch file="${dist.manifest.file}" />
+     <copy file="${manifest.file}" tofile="${dist.manifest.file}" overwrite="true" failonerror="false" />
+@@ -1648,4 +1653,4 @@
+     </dot-classpath>
+   </target>
+ 
+-</project>
+\ No newline at end of file
++</project>

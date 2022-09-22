@@ -1,0 +1,83 @@
+<?xml version="1.0"?>
+<project
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="http://maven.apache.org/xsd/maven-project-3.0.0.xsd">
+  <pomVersion>3</pomVersion>
+  <id>libloader</id>
+  <name>libloader</name>
+  <groupId>jfree</groupId>
+  <currentVersion>@VERSION@</currentVersion>
+  <organization>
+    <name>JFree.org</name>
+    <url>http://www.jfree.org/</url>
+  </organization>
+  <inceptionYear>2005</inceptionYear>
+
+  <description>
+    LibLoader is a resource loading framework. Although it is mainly used for
+    JFreeReport and LibLayout, its generic architecture makes it a valuable
+    addition for all projects that have to deal with large ammounts of resources.
+  </description>
+
+  <shortDescription>LibLoader is a resource loading framework.</shortDescription>
+
+  <url>http://www.jfree.org/libloader/</url>
+  <issueTrackingUrl>http://sourceforge.net/tracker/?group_id=51669</issueTrackingUrl>
+
+  <repository>
+    <connection>
+      scm:cvs:pserver:anonymous@cvs.sourceforge.net:/cvsroot/jfreereport:libloader
+    </connection>
+    <url>
+      http://cvs.sourceforge.net/viewcvs.py/jfreereport/libloader
+    </url>
+  </repository>
+
+  <mailingLists>
+    <mailingList>
+      <name>JFreeReport Developer List</name>
+      <subscribe>
+        jfreereport-developers-request@lists.sourceforge.net?subject=subscribe
+      </subscribe>
+      <unsubscribe>
+        jfreereport-developers-request@lists.sourceforge.net?subject=unsubscribe
+      </unsubscribe>
+      <archive>
+        http://sourceforge.net/mailarchive/forum.php?forum=jfreereport-developers
+      </archive>
+    </mailingList>
+  </mailingLists>
+
+  <developers>
+    <!--
+    For an up to date list of developers and contributors have a look at
+    the project info implementations.
+    -->
+  </developers>
+
+  <licenses>
+    <license>
+      <name>GNU Lesser General Public Licence</name>
+      <url>http://www.gnu.org/licenses/lgpl.txt</url>
+      <distribution>repo</distribution>
+    </license>
+  </licenses>
+
+  <dependencies>
+    <dependency>
+      <groupId>jfree</groupId>
+      <artifactId>jcommon</artifactId>
+      <version>1.0.0</version>
+      <url>http://www.jfree.org/jcommon/</url>
+    </dependency>
+
+    <!--
+     There are optional dependencies on OSCache, EHCache and the Pixie library.
+     -->
+  </dependencies>
+
+  <build>
+    <!-- We don't use Maven as build system. -->
+  </build>
+</project>
+

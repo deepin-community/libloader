@@ -1,0 +1,12 @@
+Document: libloader-java
+Title: Java general purpose resource loading framework
+Author: Thomas Morgner, David Gilbert and others
+Abstract: LibLoader is a general purpose resource loading framework. It has
+ been designed to allow one to load resources from any physical location and
+ to allow the processing of that content data in a generic way, totally
+ transparent to the user of that library.
+Section: Programming
+
+Format: HTML
+Index: /usr/share/doc/libloader-java/docs/api/index.html
+Files: /usr/share/doc/libloader-java/docs/api/*.html

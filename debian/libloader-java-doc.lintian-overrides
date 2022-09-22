@@ -1,0 +1,4 @@
+# It would be too complicated to remove the javascript that is included in
+# javadocs, see the discussion on Debian Java mailing list starting at 
+# https://lists.debian.org/debian-java/2018/06/msg00020.html.
+embedded-javascript-library usr/share/doc/libloader-java/docs/api/jquery/*

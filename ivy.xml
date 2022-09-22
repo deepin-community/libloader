@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ivy-module version="2.0" xmlns:m="http://ant.apache.org/ivy/maven">
+	<info organisation="${ivy.artifact.group}" module="${ivy.artifact.id}" revision="${project.revision}" />
+
+	<configurations>
+		<conf name="default" />
+		<conf name="test" visibility="private" />
+		<conf name="source" />
+	</configurations>
+
+	<publications>
+		<artifact name="${ivy.artifact.id}" type="jar" conf="default" />
+		<artifact name="${ivy.artifact.id}" m:classifier="sources" type="source" ext="jar" conf="source" />
+	</publications>
+
+	<dependencies defaultconf="default->default">
+		<!--  internal dependencies -->
+		<dependency org="${ivy.artifact.group}" name="libbase" rev="${dependency.libbase.revision}" transitive="true" changing="true" />
+
+		<!--  internal 'optional' dependencies -->
+		<!--
+        	Whether you need to have these libraries on your classpath depends on the
+			feature set you want to use:
+   			libloader-factory-wmf:
+			 - pixie-1.0.0.jar
+		-->
+		<dependency org="${ivy.artifact.group}" name="libpixie" rev="${dependency.libpixie.revision}" transitive="true" changing="true" />
+
+		<!--  external dependencies -->
+		<dependency org="batik" name="batik-awt-util" rev="1.6" />
+		<dependency org="batik" name="batik-bridge" rev="1.6" />
+		<dependency org="batik" name="batik-css" rev="1.6" />
+		<dependency org="batik" name="batik-dom" rev="1.6" />
+		<dependency org="batik" name="batik-ext" rev="1.6" />
+		<dependency org="batik" name="batik-gui-util" rev="1.6" />
+		<dependency org="batik" name="batik-gvt" rev="1.6" />
+		<dependency org="batik" name="batik-parser" rev="1.6" />
+		<dependency org="batik" name="batik-script" rev="1.6" />
+		<dependency org="batik" name="batik-svg-dom" rev="1.6" />
+		<dependency org="batik" name="batik-util" rev="1.6" />
+		<dependency org="batik" name="batik-xml" rev="1.6" />
+		<dependency org="xml-apis" name="xml-apis" rev="1.0.b2" />
+
+		<!--  external 'optional' dependencies -->
+		<!--
+			Whether you need to have these libraries on your classpath depends on the feature set you want to use: libloader-module-cache-ehcache: - ehcache-1.4.1.jar - JSR107Cache-1.0.jar -
+			backport-util-concurrent-3.0.jar libloader-module-cache-oscache: - oscache-2.3-compat.jar
+		-->
+		<dependency org="backport-util-concurrent" name="backport-util-concurrent" rev="3.0" transitive="false" />
+		<dependency org="net.sf.ehcache" name="ehcache" rev="1.4.1" transitive="false" />
+		<dependency org="net.sf.jsr107cache" name="jsr107cache" rev="1.0" transitive="false" />
+
+		<!-- testing dependencies -->
+		<dependency org="junit" name="junit" rev="3.8.1" transitive="false" conf="test->default" />
+	</dependencies>
+</ivy-module>
